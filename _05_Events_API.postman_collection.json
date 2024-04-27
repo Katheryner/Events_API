@@ -1,0 +1,177 @@
+{
+	"info": {
+		"_postman_id": "da4e602f-3e6c-4dcd-95cb-4792f9af9bbc",
+		"name": "_05_Events_API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "34297433"
+	},
+	"item": [
+		{
+			"name": "save",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var response = pm.response.json();",
+							"",
+							"pm.collectionVariables.set(\"id_event\", response.id);",
+							"",
+							"console.log(\"ID guardado \" + pm.collectionVariables.get(\"id_event\"));"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Clasico Paisa\",\n    \"date\": \"2024-05-14\",\n    \"location\": \"Medellín\",\n    \"capacity\": 44000\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/events",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"events"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var response = pm.response.json();",
+							"",
+							"pm.collectionVariables.set(\"id_event\", response.id);",
+							"",
+							"console.log(\"ID guardado \" + pm.collectionVariables.get(\"id_event\"));"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Baum\",\n    \"date\": \"2024-05-10\",\n    \"location\": \"Bogota\",\n    \"capacity\": 7000\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/events/97b65bf9-1c1b-4427-8d1b-16343e45354b",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"events",
+						"97b65bf9-1c1b-4427-8d1b-16343e45354b"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get all",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}/events",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"events"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}/events/6191cfc4-d800-4fbb-a239-34cf72b19359",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"events",
+						"6191cfc4-d800-4fbb-a239-34cf72b19359"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}/events/6191cfc4-d800-4fbb-a239-34cf72b19359",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"events",
+						"6191cfc4-d800-4fbb-a239-34cf72b19359"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get name",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}/events/findByName/Clasico Paisa",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"events",
+						"findByName",
+						"Clasico Paisa"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "URL",
+			"value": "http://localhost:8080/api/v1"
+		},
+		{
+			"key": "id_event",
+			"value": ""
+		}
+	]
+}
